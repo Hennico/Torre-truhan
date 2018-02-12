@@ -86,6 +86,9 @@ global.salidaY = 1;
 if (!global.partidaIniciada) {
     file_delete("esenarios.save");
     generar_nuevo_piso();
+    
+    global.partidaIniciada = true;
+    grabar_configuracion();
 } else { 
     cargar_esenario();
 }

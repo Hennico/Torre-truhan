@@ -1,7 +1,7 @@
-/// cambiar_orientacion(pantalla, pad)
+/// cambiar_orientacion(pantalla)
 enum OrientacionPad {
-    zurdo,
-    diestro
+    diestro,
+    zurdo
 }
 
 enum OrientacionPantalla {
@@ -12,7 +12,6 @@ enum OrientacionPantalla {
 }
 
 var orientacion    = argument[0];
-var orientacionPad = argument[1];
 
 var orientacion_xview = new_array(-512,   0,   0,   0)
 var orientacion_yview = new_array(   0,   0,   0,-512)
@@ -42,13 +41,17 @@ view_yview = orientacion_yview[orientacion];
 global.menu_xoffset = orientacion_xmenu[orientacion];
 global.menu_yoffset = orientacion_ymenu[orientacion];
 
-if (orientacionPad == OrientacionPad.zurdo) {
+if (global.manoDiestra == OrientacionPad.diestro) {
     global.pad_xoffset = 120;
-    global.pad_yoffset = 256;
+    global.pad_yoffset = 224;
+    
+    global.stats_xoffset = 512-240;
+    global.stats_yoffset = 144;
 } else {
     global.pad_xoffset = 512-120;
-    global.pad_yoffset = 256;
+    global.pad_yoffset = 224;
+    
+    global.stats_xoffset = 240;
+    global.stats_yoffset = 144;
 }
-
-
 with (obj_menu) { event_user(0); }

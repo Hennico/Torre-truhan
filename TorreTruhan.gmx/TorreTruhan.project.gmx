@@ -72,8 +72,6 @@
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_menu</object>
-    <object>objects\obj_controlPad</object>
     <object>objects\obj_flood</object>
     <objects name="Controles">
       <object>objects\obj_control</object>
@@ -95,7 +93,11 @@
     <objects name="Personaje">
       <object>objects\obj_personaje</object>
     </objects>
-    <object>objects\useForTestObject</object>
+    <objects name="Interfaz visual">
+      <object>objects\obj_menu</object>
+      <object>objects\obj_controlPad</object>
+      <object>objects\obj_mostrarStats</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_pantallaCarga</room>
@@ -118,7 +120,7 @@
     <constant name="ESENARIO_ANCHO">512</constant>
     <constant name="ESENARIO_ALTO">512</constant>
     <constant name="MIN_VALOR_NIEBLA">0.3</constant>
-    <constant name="SAVE_VERTION">1</constant>
+    <constant name="SAVE_VERTION">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

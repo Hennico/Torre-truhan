@@ -27,7 +27,12 @@
             <kind>1</kind>
             <string>/// Inicializar
 orientation = display_get_orientation();
-cambiar_orientacion(orientation, 0);
+switch (orientation) {
+    case display_landscape:         cambiar_orientacion(OrientacionPantalla.menuDerecha  ); break;
+    case display_landscape_flipped: cambiar_orientacion(OrientacionPantalla.menuIzquierda); break;
+    case display_portrait:          cambiar_orientacion(OrientacionPantalla.menuAbajo    ); break;
+    case display_portrait_flipped:  cambiar_orientacion(OrientacionPantalla.menuArriba   ); break;
+}
 </string>
           </argument>
         </arguments>
@@ -56,10 +61,10 @@ if (os_type == os_android) {
     if (orientation != newOrientation) {
         orientation = newOrientation
         switch (orientation) {
-            case display_landscape: cambiar_orientacion(OrientacionPantalla.menuDerecha); break;
+            case display_landscape:         cambiar_orientacion(OrientacionPantalla.menuDerecha  ); break;
             case display_landscape_flipped: cambiar_orientacion(OrientacionPantalla.menuIzquierda); break;
-            case display_portrait: cambiar_orientacion(OrientacionPantalla.menuAbajo); break;
-            case display_portrait_flipped: cambiar_orientacion(OrientacionPantalla.menuArriba); break;
+            case display_portrait:          cambiar_orientacion(OrientacionPantalla.menuAbajo    ); break;
+            case display_portrait_flipped:  cambiar_orientacion(OrientacionPantalla.menuArriba   ); break;
         }
     }
 }
@@ -92,10 +97,18 @@ y = global.menu_yoffset;
 
 if (! instance_exists(obj_controlPad))
     instance_create(0,0,obj_controlPad);
-
+    
 with (obj_controlPad) {
     x = global.menu_xoffset+global.pad_xoffset;
     y = global.menu_yoffset+global.pad_yoffset;
+}
+
+if (! instance_exists(obj_mostrarStats))
+    instance_create(0,0,obj_mostrarStats);
+    
+with (obj_mostrarStats) {
+    x = global.menu_xoffset+global.stats_xoffset;
+    y = global.menu_yoffset+global.stats_yoffset;
 }
 </string>
           </argument>
@@ -121,7 +134,7 @@ with (obj_controlPad) {
             <kind>1</kind>
             <string>/// mover
 orientation = (orientation + 1) mod 4;
-cambiar_orientacion(orientation, 0);
+cambiar_orientacion(orientation);
 </string>
           </argument>
         </arguments>

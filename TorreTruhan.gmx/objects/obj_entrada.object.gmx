@@ -63,6 +63,7 @@ if (obj_control.actuar) {
         global.pisoActual -= 1;
     
     cargar_esenario();
+    grabar_configuracion();
 }
 </string>
           </argument>

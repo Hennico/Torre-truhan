@@ -100,7 +100,7 @@ if (!surface_exists(imagen_niebla)) {
     var pjY = yToCell(obj_personaje.y);
     
     grilla_luz[# pjPrevX, pjPrevY] = 0;
-    grilla_luz[# pjX, pjY] = 5;
+    grilla_luz[# pjX, pjY] = 3;
     scr_iluminar(grilla_niebla, grilla_luz);
 
     imagen_niebla = surface_create(ESENARIO_ANCHO, ESENARIO_ALTO);

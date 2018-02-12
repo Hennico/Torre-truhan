@@ -52,28 +52,33 @@ clickY = 0;
           <argument>
             <kind>1</kind>
             <string>/// soltar click
-var min_dist = 32;
-
-var distancia = point_distance(clickX, clickY, mouse_x, mouse_y);
-var direccion = point_direction(clickX, clickY, mouse_x, mouse_y);
-
-mover = distancia &gt; min_dist;
-if (mover) {
-    mover_arr = false;
-    mover_aba = false;
-    mover_der = false;
-    mover_izq = false;
+if (clickeado) {
+    clickeado = false;
+    var min_dist = 32;
     
-    if (abs(dcos(direccion)) &gt; abs(dsin(direccion))) {
-        if (dcos(direccion) &gt; 0)
-            mover_der = true;
-        if (dcos(direccion) &lt; 0)
-            mover_izq = true;
+    var distancia = point_distance(clickX, clickY, mouse_x, mouse_y);
+    var direccion = point_direction(clickX, clickY, mouse_x, mouse_y);
+    
+    mover = distancia &gt; min_dist;
+    if (mover) {
+        mover_arr = false;
+        mover_aba = false;
+        mover_der = false;
+        mover_izq = false;
+        
+        if (abs(dcos(direccion)) &gt; abs(dsin(direccion))) {
+            if (dcos(direccion) &gt; 0)
+                mover_der = true;
+            if (dcos(direccion) &lt; 0)
+                mover_izq = true;
+        } else {
+            if (dsin(direccion) &gt; 0)
+                mover_arr = true;
+            if (dsin(direccion) &lt; 0)
+                mover_aba = true;
+        }
     } else {
-        if (dsin(direccion) &gt; 0)
-            mover_arr = true;
-        if (dsin(direccion) &lt; 0)
-            mover_aba = true;
+        actuar = true;
     }
 }
 </string>

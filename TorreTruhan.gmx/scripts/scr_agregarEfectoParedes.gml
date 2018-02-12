@@ -1,10 +1,13 @@
 /// scr_agregarEfectoParedes(tile_set, depth)
-draw_clear(c_ltgray);
 var tiles = argument[0];
 var tile_depth = argument[1];
 
-for (var xx = 0; xx < room_width; xx += CELDA_ANCHO) {
-for (var yy = 0; yy < room_height; yy += CELDA_ALTO) {
+var previousTiles = tile_get_ids_at_depth(tile_depth);
+for (var i = 0; i < array_length_1d(previousTiles); i++)
+    tile_delete(previousTiles[i]);
+    
+for (var xx = 0; xx < MAPA_ANCHO; xx += CELDA_ANCHO) {
+for (var yy = 0; yy < MAPA_ALTO ; yy += CELDA_ALTO) {
     var noTile = false;
     var tile_top = 0;
     var tile_left = 0;
@@ -88,6 +91,6 @@ for (var yy = 0; yy < room_height; yy += CELDA_ALTO) {
             }
         }
     }
-    if ( !noTile)
+    if (!noTile)
         tile_add(tiles, tile_left, tile_top, CELDA_ANCHO, CELDA_ALTO, xx, yy, tile_depth);
 }}

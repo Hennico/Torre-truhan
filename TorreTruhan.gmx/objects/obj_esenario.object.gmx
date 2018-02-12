@@ -26,13 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>/// Inicialziar
-humedad = 0;
-combustible = 0;
-bloqueaVision = 0;
-intensidadFuego = 0;
-
-creacionInfo = "";
-
 enum EsenarioAtrib {
     x,
     y,
@@ -40,16 +33,8 @@ enum EsenarioAtrib {
     image_angle,
     object_index,
     
-    humedad,
-    combustible,
-    creacionInfo,
-    bloqueaVision,
-    intensidadFuego,
-    
     cantidadAtributos
 }
-
-ev_inicializarse = 15;
 </string>
           </argument>
         </arguments>

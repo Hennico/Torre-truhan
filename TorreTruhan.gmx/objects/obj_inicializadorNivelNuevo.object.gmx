@@ -70,31 +70,25 @@
           <argument>
             <kind>1</kind>
             <string>/// Inicailziar salon
-global.sigTurno = false;
-global.pad_xoffset = 120;
-global.pad_yoffset = 224;
-global.menu_xoffset = -MENU_ANCHO;
-global.menu_yoffset = 0;
-
 randomize();
-
-
-view_xview = global.menu_xoffset;
-
-//instance_create(0,0,obj_control);
+global.sigTurno = false;
+global.surfaceSombra = noone;
+instance_create(0,0,obj_menu);
 instance_create(0,0,obj_accionActiva);
 instance_create(MAPA_XOFFSET+CELDA_ANCHO*1.5, MAPA_YOFFSET+CELDA_ALTO*1.5,obj_personaje);
-instance_create(global.menu_xoffset,global.menu_yoffset,obj_menu);
-instance_create(global.menu_xoffset+global.pad_xoffset,global.menu_yoffset+global.pad_yoffset,obj_controlPad);
+instance_create(0,0,obj_oscuridad);
 
-var planos = ds_grid_create(PLANO_ANCHO, PLANO_ALTO);
-ds_grid_mazeify(planos,CeldaValor.pared, CeldaValor.piso, 1,1, MazePolishOption.both);
+global.entradaX = 1;
+global.entradaY = 1;
+global.salidaX = 1;
+global.salidaY = 1;
 
-mapa_agregar_salida(planos, 1,1);
-scr_mapa_instanciar(planos);
-scr_agregarEfectoParedes(background3,-1);
-
-with (instance_create(0,0,obj_oscuridad)) { event_user(0); }
+if (!global.partidaIniciada) {
+    file_delete("esenarios.save");
+    generar_nuevo_piso();
+} else { 
+    cargar_esenario();
+}
 </string>
           </argument>
         </arguments>

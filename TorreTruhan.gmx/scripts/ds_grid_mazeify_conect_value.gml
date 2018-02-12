@@ -62,7 +62,12 @@ for (var yy = 0; yy < maze_height ; yy++) {
                 var deltax = dcos(dir+desv);
                 var deltay = dsin(dir+desv);
                 
-                if (chained[# xact+2*deltax,yact+2*deltay]) {
+                var chainX = xact+2*deltax;
+                var chainY = yact+2*deltay;
+                
+                var isStart = global.entradaX == chainX && global.entradaY == chainY
+                
+                if (chained[# chainX,chainY] && !isStart) {
                     blueprints[# xact+deltax,yact+deltay] = content;
                     ds_list_add(chain,xact+deltax,yact+deltay);
                     itsChained = true;

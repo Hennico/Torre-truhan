@@ -13,4 +13,5 @@ enum CeldaValor {
     vacio  = scr_mapa_vacio ,
     pared  = scr_mapa_pared ,
     salida = scr_mapa_salida,
+    entrada = scr_mapa_entrada,
 }

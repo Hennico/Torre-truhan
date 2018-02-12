@@ -12,6 +12,7 @@
     <sprite>sprites\spr_paredSecreta</sprite>
     <sprite>sprites\sprite3</sprite>
     <sprite>sprites\spr_salida</sprite>
+    <sprite>sprites\spr_entrada</sprite>
     <sprite>sprites\spr_puerta</sprite>
     <sprite>sprites\spr_dialogo</sprite>
     <sprite>sprites\sprite7</sprite>
@@ -32,6 +33,7 @@
       <script>scripts\cellToX.gml</script>
       <script>scripts\cellToY.gml</script>
       <script>scripts\instance_create_ext.gml</script>
+      <script>scripts\new_array.gml</script>
     </scripts>
     <scripts name="GeneracionMapa">
       <script>scripts\scr_agregarEfectoParedes.gml</script>
@@ -49,13 +51,24 @@
         <script>scripts\scr_mapa_vacio.gml</script>
         <script>scripts\scr_mapa_pared.gml</script>
         <script>scripts\scr_mapa_salida.gml</script>
+        <script>scripts\scr_mapa_entrada.gml</script>
       </scripts>
     </scripts>
     <scripts name="Funcionales">
       <script>scripts\acc_mover.gml</script>
+      <script>scripts\scr_iluminar.gml</script>
+      <script>scripts\cambiar_orientacion.gml</script>
+      <script>scripts\generar_nuevo_piso.gml</script>
+    </scripts>
+    <scripts name="Persistencia">
+      <script>scripts\grabar_configuracion.gml</script>
+      <script>scripts\cargar_configuracion.gml</script>
       <script>scripts\grabar_esenario.gml</script>
       <script>scripts\cargar_esenario.gml</script>
-      <script>scripts\scr_iluminar.gml</script>
+      <script>scripts\grabar_niebla.gml</script>
+      <script>scripts\cargar_niebla.gml</script>
+      <script>scripts\grabar_progreso.gml</script>
+      <script>scripts\cargar_progreso.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -74,6 +87,7 @@
       <object>objects\obj_esenario</object>
       <object>objects\obj_obstaculo</object>
       <object>objects\obj_salida</object>
+      <object>objects\obj_entrada</object>
       <object>objects\obj_pared</object>
       <object>objects\obj_paredSecreta</object>
       <object>objects\obj_salidaTutorial</object>
@@ -84,13 +98,14 @@
     <object>objects\useForTestObject</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room3</room>
-    <room>rooms\room0</room>
-    <room>rooms\room1</room>
-    <room>rooms\room2</room>
+    <room>rooms\rm_pantallaCarga</room>
+    <room>rooms\rm_laberintoEterno</room>
+    <room>rooms\rm_tutorial1</room>
+    <room>rooms\rm_tutorial2</room>
+    <room>rooms\rm_tutorial3</room>
     <room>rooms\rm_test</room>
   </rooms>
-  <constants number="12">
+  <constants number="13">
     <constant name="MENU_ANCHO">512</constant>
     <constant name="MAPA_XOFFSET">16</constant>
     <constant name="MAPA_YOFFSET">16</constant>
@@ -103,6 +118,7 @@
     <constant name="ESENARIO_ANCHO">512</constant>
     <constant name="ESENARIO_ALTO">512</constant>
     <constant name="MIN_VALOR_NIEBLA">0.3</constant>
+    <constant name="SAVE_VERTION">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -55,15 +55,16 @@ imagen_niebla = noone;
             <kind>1</kind>
             <string>/// Generar mapa nuevo
 if(!ds_exists(grilla_luz,ds_type_grid)) {
-grilla_luz = ds_grid_create(PLANO_ANCHO, PLANO_ALTO);
+    grilla_luz = ds_grid_create(PLANO_ANCHO, PLANO_ALTO);
+}
 ds_grid_clear(grilla_luz, 0);
-}
 
-if(!ds_exists(grilla_niebla,ds_type_grid)) {
-grilla_niebla = ds_grid_create(PLANO_ANCHO, PLANO_ALTO);
-ds_grid_clear(grilla_niebla, 0);
+if (!cargar_niebla()) {
+    if(!ds_exists(grilla_niebla,ds_type_grid)) {
+        grilla_niebla = ds_grid_create(PLANO_ANCHO, PLANO_ALTO);
+    }
+    ds_grid_clear(grilla_niebla, 0);
 }
-
 </string>
           </argument>
         </arguments>

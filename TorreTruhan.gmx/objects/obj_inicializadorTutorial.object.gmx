@@ -30,14 +30,6 @@ instance_create(0,0,obj_control);
 instance_create(0,0,obj_accionActiva);
 //instance_create(MAPA_XOFFSET+CELDA_ANCHO/2, MAPA_YOFFSET+CELDA_ALTO/2,obj_personaje);
 
-global.menu_xoffset = -MENU_ANCHO;
-global.menu_yoffset = 0;
-global.pad_xoffset = 120;
-global.pad_yoffset = 224;
-
-view_xview = global.menu_xoffset;
-instance_create(global.menu_xoffset,global.menu_yoffset,obj_menu);
-instance_create(global.menu_xoffset+global.pad_xoffset,global.menu_yoffset+global.pad_yoffset,obj_controlPad);
 
 scr_agregarEfectoParedes(background3,-1);
 </string>

@@ -1,13 +1,16 @@
 /// mapa_agregar_salida(plano, xIni, yIni)
 var plano = argument[0];
-var salidaX = argument[1];
-var salidaY = argument[2];
+var entradaX = argument[1];
+var entradaY = argument[2];
+var salidaX = entradaX;
+var salidaY = entradaY;
 
 var plano_ancho = ds_grid_width(plano);
 
 var usados = ds_map_create();
 var sigSalida = ds_queue_create();
 ds_queue_enqueue(sigSalida, salidaX, salidaY);
+
 
 while (!ds_queue_empty(sigSalida)) {
     salidaX = ds_queue_dequeue(sigSalida);
@@ -33,3 +36,4 @@ ds_map_destroy(usados);
 ds_queue_destroy(sigSalida);
 
 plano[# salidaX, salidaY] = CeldaValor.salida;
+plano[# entradaX, entradaY] = CeldaValor.entrada;
